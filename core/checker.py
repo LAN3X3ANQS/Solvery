@@ -135,17 +135,19 @@ def is_final_answer(equation):
     left = tree["left"]
     right = tree["right"]
 
-    # x = something
+    # x = number
     if (
         left["type"] == "VARIABLE"
         and left["value"] == "x"
+        and right["type"] == "NUMBER"
     ):
         return True
 
-    # something = x
+    # number = x
     if (
         right["type"] == "VARIABLE"
         and right["value"] == "x"
+        and left["type"] == "NUMBER"
     ):
         return True
 
